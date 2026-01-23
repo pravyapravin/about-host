@@ -17,133 +17,129 @@ import {
   Mail,
   Instagram,
   Facebook,
-  Shield,
   Heart,
-  DollarSign,
-  MessageCircle,
-  Utensils,
-  Tv,
-  AirVent,
+  TreePalm,
   UtensilsCrossed,
-  Sunrise,
-  Anchor,
-  Shell
+  Wind,
+  Leaf,
+  Home,
+  Navigation,
+  Clock,
+  Route
 } from 'lucide-react'
 
-// Property data
+// Property data - Local Karnataka style names
 const properties = [
   {
     id: 1,
-    name: 'Seaglass Cottage',
-    tagline: 'Where mornings smell like salt and coffee',
-    description: 'A cozy beach cottage with vintage charm and modern comforts. Wake up to the sound of waves just steps from your door.',
+    name: 'Thottam House',
+    tagline: 'Where the garden meets the sea',
+    description: 'A traditional Karnataka home surrounded by coconut groves and mango trees. Wake up to bird songs and the distant rhythm of waves.',
     capacity: 4,
     bedrooms: 2,
-    price: 189,
-    image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80',
-    amenities: ['wifi', 'kitchen', 'parking', 'ac']
+    price: 3500,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    amenities: ['wifi', 'parking', 'garden', 'kitchen']
   },
   {
     id: 2,
-    name: 'Azure Villa',
-    tagline: 'Luxury meets the infinite blue',
-    description: 'Our flagship oceanfront villa with panoramic views, private pool, and space for the whole family to create lasting memories.',
+    name: 'Karavali Villa',
+    tagline: 'The coast in its full glory',
+    description: 'Our largest home with sweeping views of the Arabian Sea. Perfect for family gatherings, with a traditional courtyard and modern comforts.',
     capacity: 8,
     bedrooms: 4,
-    price: 459,
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
-    amenities: ['wifi', 'kitchen', 'parking', 'pool']
+    price: 8500,
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
+    amenities: ['wifi', 'parking', 'kitchen', 'terrace']
   },
   {
     id: 3,
-    name: 'Driftwood House',
-    tagline: 'Room to play, space to stay',
-    description: 'A spacious family beach home with a wraparound porch, game room, and backyard that leads right to the sandy shores.',
+    name: 'Mane Homestay',
+    tagline: 'Simple joys, lasting memories',
+    description: 'A cozy Mangalorean-style home with sloping tiled roof and sit-out verandah. Just like visiting your grandparents in the village.',
     capacity: 6,
     bedrooms: 3,
-    price: 279,
+    price: 4500,
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
-    amenities: ['wifi', 'kitchen', 'parking', 'tv']
+    amenities: ['wifi', 'parking', 'kitchen', 'garden']
   },
   {
     id: 4,
-    name: 'Sunset Cove Retreat',
-    tagline: 'For two hearts and endless sunsets',
-    description: 'An intimate getaway designed for romance. Private deck, outdoor shower, and the best sunset views on the coast.',
+    name: 'Sagar Cottage',
+    tagline: 'For two souls and the sea',
+    description: 'An intimate cottage for couples seeking peace. Private garden, hammock under the jackfruit tree, and chai on the verandah.',
     capacity: 2,
     bedrooms: 1,
-    price: 159,
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',
-    amenities: ['wifi', 'coffee', 'ac', 'sunset']
+    price: 2500,
+    image: 'https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800&q=80',
+    amenities: ['wifi', 'garden', 'breakfast', 'parking']
   },
   {
     id: 5,
-    name: "The Surfer's Loft",
-    tagline: 'Catch waves, catch dreams',
-    description: 'A laid-back loft steps from the best surf break. Board storage, outdoor rinse station, and a community of wave-riders.',
+    name: 'Kallu Mane',
+    tagline: 'Built with laterite, filled with warmth',
+    description: 'Traditional laterite stone house with wooden beams and antique furniture. Experience old-world Karnataka hospitality.',
     capacity: 4,
     bedrooms: 2,
-    price: 219,
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-    amenities: ['wifi', 'surfboards', 'parking', 'coffee']
+    price: 4000,
+    image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
+    amenities: ['wifi', 'parking', 'heritage', 'kitchen']
   }
 ]
 
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah & Michael',
-    location: 'Portland, OR',
-    text: "We've stayed at many coastal rentals, but Seaglass Cottage felt different. It felt like coming home to a place we'd never been. We've already booked our return trip.",
+    name: 'Ramesh & Lakshmi',
+    location: 'Mangalore',
+    text: "We were looking for a quiet escape from Mangalore. What a discovery! The Thottam House felt like stepping into my grandmother's home. The filter coffee alone is worth the trip.",
     rating: 5,
-    property: 'Seaglass Cottage'
+    property: 'Thottam House'
   },
   {
     id: 2,
-    name: 'The Martinez Family',
-    location: 'Austin, TX',
-    text: "Azure Villa gave us the family vacation we'd been dreaming of. The kids still talk about the tide pools and the stars at night. Pure magic.",
+    name: 'The Shetty Family',
+    location: 'Mumbai',
+    text: "We were looking for something between the usual resorts and homestays. Karavali Villa was perfect - the kids played in the garden while we watched the sunset from the terrace. Already planning our next visit.",
     rating: 5,
-    property: 'Azure Villa'
+    property: 'Karavali Villa'
   },
   {
     id: 3,
-    name: 'James L.',
-    location: 'San Francisco, CA',
-    text: "As a solo traveler and surfer, The Surfer's Loft was perfect. Great location, great vibes, and I made friends with other guests that I'm still in touch with.",
+    name: 'Arun K.',
+    location: 'Chennai',
+    text: "As a solo traveler, I loved the simplicity of Kallu Mane. The owner uncle's stories about the village, fresh toddy from the neighbor's palm tree, evening walks to the beach - this is the real Karnataka.",
     rating: 5,
-    property: "The Surfer's Loft"
+    property: 'Kallu Mane'
   },
   {
     id: 4,
-    name: 'Emma & David',
-    location: 'Seattle, WA',
-    text: "Sunset Cove was our honeymoon haven. Every evening we'd sit on the deck with wine, watching the sun melt into the ocean. Unforgettable.",
+    name: 'Priya & Karthik',
+    location: 'Hyderabad',
+    text: "We spent our anniversary at Sagar Cottage. No fancy amenities, just peace, good food, and each other. The lady of the house made us neer dosa for breakfast. Heaven!",
     rating: 5,
-    property: 'Sunset Cove Retreat'
+    property: 'Sagar Cottage'
   }
 ]
 
 const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', alt: 'Sandy beach at sunrise' },
-  { url: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80', alt: 'Crystal clear ocean water' },
-  { url: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&q=80', alt: 'Coastal cliffs' },
-  { url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80', alt: 'Palm trees sunset' },
-  { url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&q=80', alt: 'Beach hammock' },
-  { url: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80', alt: 'Ocean waves' }
+  { url: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80', alt: 'Coastal Karnataka waves' },
+  { url: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', alt: 'Coconut palms' },
+  { url: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&q=80', alt: 'Traditional food' },
+  { url: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80', alt: 'Fishing boats' },
+  { url: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&q=80', alt: 'Temple architecture' },
+  { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80', alt: 'Village path' }
 ]
 
 // Amenity icon mapping
 const amenityIcons = {
   wifi: Wifi,
-  kitchen: UtensilsCrossed,
   parking: Car,
-  ac: AirVent,
-  pool: Waves,
-  tv: Tv,
-  coffee: Coffee,
-  sunset: Sunrise,
-  surfboards: Anchor
+  garden: Leaf,
+  kitchen: UtensilsCrossed,
+  terrace: Wind,
+  breakfast: Coffee,
+  heritage: Home
 }
 
 // Intersection Observer Hook
@@ -170,30 +166,30 @@ function useInView(options = {}) {
 }
 
 // Navigation Component
-function Navigation({ scrolled }) {
+function NavBar({ scrolled }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
-    { name: 'Properties', href: '#properties' },
+    { name: 'Our Homes', href: '#properties' },
     { name: 'Our Story', href: '#story' },
     { name: 'Location', href: '#location' },
-    { name: 'Reviews', href: '#testimonials' },
+    { name: 'Guest Stories', href: '#testimonials' },
     { name: 'Contact', href: '#footer' }
   ]
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-paper-50 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <Shell className={`w-8 h-8 ${scrolled ? 'text-ocean-600' : 'text-white'}`} />
-            <span className={`font-serif text-2xl font-semibold ${
-              scrolled ? 'text-ocean-900' : 'text-white'
+            <TreePalm className={`w-8 h-8 ${scrolled ? 'text-terracotta-600' : 'text-paper-100'}`} />
+            <span className={`font-display text-2xl ${
+              scrolled ? 'text-wood-800' : 'text-paper-50'
             }`}>
-              Coastal Stays
+              Malgudi Homestay
             </span>
           </a>
 
@@ -203,8 +199,8 @@ function Navigation({ scrolled }) {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-ocean-400 ${
-                  scrolled ? 'text-ocean-800' : 'text-white'
+                className={`text-sm font-medium transition-colors hover:text-terracotta-500 ${
+                  scrolled ? 'text-wood-700' : 'text-paper-100'
                 }`}
               >
                 {link.name}
@@ -212,7 +208,7 @@ function Navigation({ scrolled }) {
             ))}
             <a
               href="#footer"
-              className="bg-sunset-500 hover:bg-sunset-600 text-white px-6 py-2.5 rounded-full font-medium transition-all hover:shadow-lg"
+              className="bg-terracotta-500 hover:bg-terracotta-600 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg"
             >
               Contact Us
             </a>
@@ -224,21 +220,21 @@ function Navigation({ scrolled }) {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className={scrolled ? 'text-ocean-900' : 'text-white'} size={24} />
+              <X className={scrolled ? 'text-wood-800' : 'text-paper-50'} size={24} />
             ) : (
-              <Menu className={scrolled ? 'text-ocean-900' : 'text-white'} size={24} />
+              <Menu className={scrolled ? 'text-wood-800' : 'text-paper-50'} size={24} />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white rounded-2xl shadow-xl mt-2 p-4 animate-fade-in">
+          <div className="md:hidden bg-paper-50 rounded-xl shadow-xl mt-2 p-4 animate-fade-in border border-terracotta-200">
             {navLinks.map(link => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-3 text-ocean-800 hover:text-ocean-600 font-medium"
+                className="block py-3 text-wood-700 hover:text-terracotta-600 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -247,7 +243,7 @@ function Navigation({ scrolled }) {
             <a
               href="#footer"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full mt-4 bg-sunset-500 hover:bg-sunset-600 text-white py-3 rounded-full font-medium text-center"
+              className="block w-full mt-4 bg-terracotta-500 hover:bg-terracotta-600 text-white py-3 rounded-lg font-medium text-center"
             >
               Contact Us
             </a>
@@ -265,31 +261,34 @@ function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
-          alt="Beautiful coastal sunset"
+          src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=1920&q=80"
+          alt="Karnataka coastline"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/40 via-ocean-900/20 to-ocean-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-wood-900/50 via-wood-900/30 to-wood-900/70" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="font-serif text-5xl md:text-7xl text-white mb-6 animate-fade-in-up">
-          Where the ocean feels like home
+        <p className="text-turmeric-300 text-lg mb-4 animate-fade-in-up font-serif tracking-wide">
+          Between Mangalore & Udupi
+        </p>
+        <h1 className="font-display text-5xl md:text-7xl text-paper-50 mb-6 animate-fade-in-up leading-tight">
+          Where every road leads home
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 mb-10 animate-fade-in-up animation-delay-200 font-light">
-          Five handpicked coastal retreats waiting to welcome you
+        <p className="text-xl md:text-2xl text-paper-200 mb-10 animate-fade-in-up animation-delay-200 font-light">
+          A slice of old Karnataka, just 800 meters from the highway
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
           <a
             href="#properties"
-            className="bg-sunset-500 hover:bg-sunset-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:shadow-xl hover:scale-105"
+            className="bg-terracotta-500 hover:bg-terracotta-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-xl"
           >
-            Explore Properties
+            Explore Our Homes
           </a>
           <a
             href="#story"
-            className="border-2 border-white text-white hover:bg-white hover:text-ocean-900 px-8 py-4 rounded-full text-lg font-medium transition-all"
+            className="border-2 border-paper-100 text-paper-100 hover:bg-paper-100 hover:text-wood-800 px-8 py-4 rounded-lg text-lg font-medium transition-all"
           >
             Our Story
           </a>
@@ -298,11 +297,39 @@ function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-3 bg-white/70 rounded-full" />
+        <div className="w-6 h-10 border-2 border-paper-200/50 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-3 bg-paper-200/70 rounded-full" />
         </div>
       </div>
     </section>
+  )
+}
+
+// Location Badge Component
+function LocationBadge() {
+  return (
+    <div className="bg-leaf-700 text-white py-4">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-sm">
+          <div className="flex items-center gap-2">
+            <Route size={18} />
+            <span><strong>NH75</strong> - Just 800m from highway</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Navigation size={18} />
+            <span><strong>Mangalore:</strong> 45 mins</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Navigation size={18} />
+            <span><strong>Udupi:</strong> 1.5 hours</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock size={18} />
+            <span><strong>Beach:</strong> 10 min walk</span>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -311,38 +338,43 @@ function OurStory() {
   const [ref, isInView] = useInView()
 
   return (
-    <section id="story" className="py-24 bg-sand-50">
+    <section id="story" className="py-24 bg-paper-100">
       <div
         ref={ref}
         className={`max-w-4xl mx-auto px-4 text-center transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <h2 className="font-serif text-4xl md:text-5xl text-ocean-900 mb-8">
-          More than a stay. A feeling.
+        <h2 className="font-display text-4xl md:text-5xl text-wood-800 mb-8">
+          Like a chapter from Malgudi
         </h2>
-        <p className="text-lg text-ocean-700 leading-relaxed mb-8">
-          We're a small family who fell in love with this stretch of coast twenty years ago.
-          What started as one beach house became five unique retreats, each with its own story
-          and character. We don't just rent properties—we share places that have become part
-          of our family's story, hoping they'll become part of yours too.
-        </p>
-        <p className="text-lg text-ocean-700 leading-relaxed">
-          Every home is personally maintained by us. Every guest becomes part of our extended
-          coastal family. That's not a marketing line—it's simply how we've always done things.
-        </p>
-        <div className="mt-12 flex justify-center gap-12">
+        <div className="font-serif text-lg text-wood-700 leading-relaxed space-y-6">
+          <p>
+            Some places exist between the lines of maps. Ours is one such place - tucked
+            between the bustle of Mangalore and the temple bells of Udupi, where the Western
+            Ghats whisper to the Arabian Sea.
+          </p>
+          <p>
+            We are not a resort. We are a family that opened its doors. What started as
+            hosting friends tired of city life became something more - a small village of
+            homes where strangers become guests, and guests become family.
+          </p>
+          <p className="text-terracotta-600 italic">
+            "Come for the beach, stay for the kaapi, return for the feeling."
+          </p>
+        </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-8 md:gap-12">
           <div className="text-center">
-            <div className="text-4xl font-serif text-sunset-500">20+</div>
-            <div className="text-ocean-600 mt-1">Years Hosting</div>
+            <div className="text-4xl font-display text-terracotta-500">15+</div>
+            <div className="text-wood-600 mt-1">Years of Hosting</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-serif text-sunset-500">5</div>
-            <div className="text-ocean-600 mt-1">Unique Properties</div>
+            <div className="text-4xl font-display text-terracotta-500">5</div>
+            <div className="text-wood-600 mt-1">Unique Homes</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-serif text-sunset-500">2,500+</div>
-            <div className="text-ocean-600 mt-1">Happy Guests</div>
+            <div className="text-4xl font-display text-terracotta-500">3000+</div>
+            <div className="text-wood-600 mt-1">Happy Guests</div>
           </div>
         </div>
       </div>
@@ -357,7 +389,7 @@ function PropertyCard({ property, index }) {
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-700 hover:shadow-2xl ${
+      className={`bg-paper-50 rounded-xl shadow-lg overflow-hidden transition-all duration-700 hover:shadow-2xl border border-terracotta-100 ${
         isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -369,27 +401,27 @@ function PropertyCard({ property, index }) {
           alt={property.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-          <span className="font-semibold text-ocean-900">From ${property.price}</span>
-          <span className="text-ocean-600 text-sm">/night</span>
+        <div className="absolute top-4 right-4 bg-paper-50/95 backdrop-blur-sm px-3 py-1 rounded-lg border border-terracotta-200">
+          <span className="font-semibold text-wood-800">₹{property.price.toLocaleString()}</span>
+          <span className="text-wood-600 text-sm">/night</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="font-serif text-2xl text-ocean-900 mb-1">{property.name}</h3>
-        <p className="text-sunset-500 italic mb-3">{property.tagline}</p>
-        <p className="text-ocean-600 text-sm mb-4 line-clamp-2">{property.description}</p>
+        <h3 className="font-display text-2xl text-wood-800 mb-1">{property.name}</h3>
+        <p className="text-terracotta-500 font-serif italic mb-3">{property.tagline}</p>
+        <p className="text-wood-600 text-sm mb-4 line-clamp-2">{property.description}</p>
 
         {/* Details */}
-        <div className="flex items-center gap-4 mb-4 text-ocean-700">
+        <div className="flex items-center gap-4 mb-4 text-wood-700">
           <div className="flex items-center gap-1">
             <Users size={18} />
             <span className="text-sm">{property.capacity} guests</span>
           </div>
           <div className="flex items-center gap-1">
             <Bed size={18} />
-            <span className="text-sm">{property.bedrooms} BR</span>
+            <span className="text-sm">{property.bedrooms} rooms</span>
           </div>
         </div>
 
@@ -400,10 +432,10 @@ function PropertyCard({ property, index }) {
             return Icon ? (
               <div
                 key={amenity}
-                className="w-8 h-8 bg-ocean-50 rounded-full flex items-center justify-center"
+                className="w-8 h-8 bg-leaf-50 rounded-lg flex items-center justify-center border border-leaf-200"
                 title={amenity}
               >
-                <Icon size={16} className="text-ocean-600" />
+                <Icon size={16} className="text-leaf-700" />
               </div>
             ) : null
           })}
@@ -418,7 +450,7 @@ function Properties() {
   const [ref, isInView] = useInView()
 
   return (
-    <section id="properties" className="py-24 bg-white">
+    <section id="properties" className="py-24 bg-paper-50">
       <div className="max-w-7xl mx-auto px-4">
         <div
           ref={ref}
@@ -426,12 +458,12 @@ function Properties() {
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-ocean-900 mb-4">
-            Find your place by the sea
+          <h2 className="font-display text-4xl md:text-5xl text-wood-800 mb-4">
+            Our Homes, Your Retreat
           </h2>
-          <p className="text-ocean-600 text-lg max-w-2xl mx-auto">
-            Each of our five properties has its own personality. Whether you're seeking
-            romance, adventure, or family fun, there's a perfect spot waiting for you.
+          <p className="text-wood-600 text-lg max-w-2xl mx-auto font-serif">
+            Each home has its own character - from traditional laterite houses to
+            garden cottages. Pick the one that calls to you.
           </p>
         </div>
 
@@ -449,35 +481,35 @@ function Properties() {
   )
 }
 
-// Why Book Direct Section
-function WhyBookDirect() {
+// Why Stay With Us Section
+function WhyStayWithUs() {
   const [ref, isInView] = useInView()
 
   const benefits = [
     {
-      icon: DollarSign,
-      title: 'Best Price Guarantee',
-      description: "You'll never find a lower rate anywhere else. We pass on the savings from booking fees directly to you."
-    },
-    {
-      icon: MessageCircle,
-      title: 'Direct Communication',
-      description: "Text us, call us, email us. You'll always reach a real person who knows the property inside and out."
-    },
-    {
       icon: Heart,
-      title: 'Personal Touches',
-      description: 'Birthday? Anniversary? Let us know. We love adding special touches to make your stay memorable.'
+      title: 'Home-cooked Meals',
+      description: 'Authentic Mangalorean cuisine - neer dosa, fish curry, and filter coffee that your grandmother would approve of.'
     },
     {
-      icon: Shield,
-      title: 'Flexible Policies',
-      description: 'Life happens. We work with you on changes and cancellations—no corporate policies, just humans.'
+      icon: Route,
+      title: 'Perfect Pit Stop',
+      description: 'On NH75 between Bangalore and the coast. Break your journey, or make us your destination.'
+    },
+    {
+      icon: Leaf,
+      title: 'Village Experience',
+      description: 'Coconut groves, temple visits, fish market walks - experience Karnataka beyond the tourist trail.'
+    },
+    {
+      icon: Sun,
+      title: 'Beach & Beyond',
+      description: '10-minute walk to pristine beaches. Kayaking, fishing, or simply watching the sunset - your choice.'
     }
   ]
 
   return (
-    <section className="py-24 bg-ocean-900 text-white">
+    <section className="py-24 bg-wood-800 text-paper-50">
       <div className="max-w-7xl mx-auto px-4">
         <div
           ref={ref}
@@ -485,11 +517,11 @@ function WhyBookDirect() {
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl mb-4">
-            The perks of booking with us
+          <h2 className="font-display text-4xl md:text-5xl mb-4">
+            Why Travelers Stop Here
           </h2>
-          <p className="text-ocean-200 text-lg max-w-2xl mx-auto">
-            Skip the middleman. When you book direct, everyone wins.
+          <p className="text-paper-300 text-lg max-w-2xl mx-auto">
+            Some come for a night, many stay for a week.
           </p>
         </div>
 
@@ -497,16 +529,16 @@ function WhyBookDirect() {
           {benefits.map((benefit, index) => (
             <div
               key={benefit.title}
-              className={`text-center p-6 rounded-2xl bg-ocean-800/50 transition-all duration-700 ${
+              className={`text-center p-6 rounded-xl bg-wood-700/50 border border-wood-600 transition-all duration-700 ${
                 isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 bg-sunset-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-terracotta-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <benefit.icon size={28} className="text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-              <p className="text-ocean-200">{benefit.description}</p>
+              <p className="text-paper-300">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -523,27 +555,27 @@ function LocationHighlights() {
     {
       icon: Waves,
       title: 'Pristine Beaches',
-      description: 'Miles of uncrowded sandy shores, perfect for morning walks or afternoon relaxation.'
+      description: 'Uncrowded Karnataka beaches just a short walk away. Morning walks, evening swims.'
     },
     {
-      icon: Sun,
-      title: '300 Sunny Days',
-      description: "This coast is blessed with incredible weather year-round. Pack your sunscreen."
+      icon: TreePalm,
+      title: 'Coconut Country',
+      description: 'Surrounded by palm groves, paddy fields, and the gentle pace of village life.'
     },
     {
-      icon: Utensils,
-      title: 'Fresh Seafood',
-      description: 'From ocean to table in hours. Local restaurants serve the catch of the day.'
+      icon: UtensilsCrossed,
+      title: 'Coastal Cuisine',
+      description: 'Fresh catch from the sea. Authentic Mangalorean and Udupi delicacies at local eateries.'
     },
     {
-      icon: Anchor,
-      title: 'Water Activities',
-      description: 'Surfing, kayaking, paddle boarding, fishing—endless ways to enjoy the water.'
+      icon: Home,
+      title: 'Temple Towns',
+      description: 'Udupi Sri Krishna Temple and countless ancient shrines within easy reach.'
     }
   ]
 
   return (
-    <section id="location" className="py-24 bg-sand-100">
+    <section id="location" className="py-24 bg-turmeric-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div
@@ -552,13 +584,17 @@ function LocationHighlights() {
               isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <h2 className="font-serif text-4xl md:text-5xl text-ocean-900 mb-6">
-              This coast is calling
+            <h2 className="font-display text-4xl md:text-5xl text-wood-800 mb-6">
+              The Road Between Two Worlds
             </h2>
-            <p className="text-ocean-700 text-lg mb-8">
-              There's a reason we chose to build our lives here. The light is different.
-              The air tastes like salt and possibility. Time moves slower. Whether you come
-              for a weekend or a month, you'll understand what we mean.
+            <p className="text-wood-700 text-lg mb-4 font-serif">
+              We sit on the golden thread that connects Mangalore's port city bustle
+              to Udupi's temple bells. Forty-five minutes from Mangalore,
+              just under an hour from Udupi.
+            </p>
+            <p className="text-wood-700 text-lg mb-8 font-serif">
+              Just 800 meters off the main road, yet a world apart. Come for a weekend
+              escape, a highway break, or a week of doing absolutely nothing.
             </p>
             <div className="grid sm:grid-cols-2 gap-6">
               {highlights.map((highlight, index) => (
@@ -569,12 +605,12 @@ function LocationHighlights() {
                   }`}
                   style={{ transitionDelay: `${(index + 2) * 100}ms` }}
                 >
-                  <div className="w-12 h-12 bg-ocean-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <highlight.icon size={24} className="text-ocean-600" />
+                  <div className="w-12 h-12 bg-terracotta-100 rounded-xl flex items-center justify-center flex-shrink-0 border border-terracotta-200">
+                    <highlight.icon size={24} className="text-terracotta-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-ocean-900 mb-1">{highlight.title}</h3>
-                    <p className="text-ocean-600 text-sm">{highlight.description}</p>
+                    <h3 className="font-semibold text-wood-800 mb-1">{highlight.title}</h3>
+                    <p className="text-wood-600 text-sm">{highlight.description}</p>
                   </div>
                 </div>
               ))}
@@ -586,14 +622,14 @@ function LocationHighlights() {
             }`}
           >
             <img
-              src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80"
-              alt="Beautiful coastal scenery"
-              className="rounded-2xl shadow-2xl"
+              src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80"
+              alt="Coastal Karnataka landscape"
+              className="rounded-xl shadow-2xl"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
+            <div className="absolute -bottom-6 -left-6 bg-paper-50 p-4 rounded-xl shadow-lg border border-terracotta-200">
               <div className="flex items-center gap-2">
-                <MapPin className="text-sunset-500" size={20} />
-                <span className="font-medium text-ocean-900">Coastal Paradise, CA</span>
+                <MapPin className="text-terracotta-500" size={20} />
+                <span className="font-medium text-wood-800">Coastal Karnataka</span>
               </div>
             </div>
           </div>
@@ -619,7 +655,7 @@ function Testimonials() {
   const testimonial = testimonials[currentIndex]
 
   return (
-    <section id="testimonials" className="py-24 bg-white">
+    <section id="testimonials" className="py-24 bg-paper-50">
       <div className="max-w-4xl mx-auto px-4">
         <div
           ref={ref}
@@ -627,29 +663,29 @@ function Testimonials() {
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-ocean-900 mb-16">
-            Stories from our guests
+          <h2 className="font-display text-4xl md:text-5xl text-wood-800 mb-16">
+            Stories from Our Guests
           </h2>
 
           <div className="relative">
-            <div className="bg-sand-50 rounded-3xl p-8 md:p-12">
+            <div className="bg-paper-100 rounded-2xl p-8 md:p-12 border border-terracotta-100">
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={24} className="fill-sunset-400 text-sunset-400" />
+                  <Star key={i} size={24} className="fill-turmeric-400 text-turmeric-400" />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="font-serif text-2xl md:text-3xl text-ocean-800 mb-8 italic">
+              <blockquote className="font-serif text-xl md:text-2xl text-wood-700 mb-8 italic leading-relaxed">
                 "{testimonial.text}"
               </blockquote>
 
               {/* Author */}
               <div>
-                <div className="font-semibold text-ocean-900">{testimonial.name}</div>
-                <div className="text-ocean-500">{testimonial.location}</div>
-                <div className="text-sunset-500 text-sm mt-1">Stayed at {testimonial.property}</div>
+                <div className="font-semibold text-wood-800">{testimonial.name}</div>
+                <div className="text-wood-500">{testimonial.location}</div>
+                <div className="text-terracotta-500 text-sm mt-1">Stayed at {testimonial.property}</div>
               </div>
             </div>
 
@@ -657,9 +693,9 @@ function Testimonials() {
             <div className="flex justify-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-12 h-12 bg-ocean-100 hover:bg-ocean-200 rounded-full flex items-center justify-center transition-colors"
+                className="w-12 h-12 bg-terracotta-100 hover:bg-terracotta-200 rounded-full flex items-center justify-center transition-colors border border-terracotta-200"
               >
-                <ChevronLeft className="text-ocean-700" size={24} />
+                <ChevronLeft className="text-terracotta-700" size={24} />
               </button>
               <div className="flex items-center gap-2">
                 {testimonials.map((_, i) => (
@@ -667,16 +703,16 @@ function Testimonials() {
                     key={i}
                     onClick={() => setCurrentIndex(i)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      i === currentIndex ? 'bg-ocean-600 w-6' : 'bg-ocean-300'
+                      i === currentIndex ? 'bg-terracotta-500 w-6' : 'bg-terracotta-200'
                     }`}
                   />
                 ))}
               </div>
               <button
                 onClick={nextTestimonial}
-                className="w-12 h-12 bg-ocean-100 hover:bg-ocean-200 rounded-full flex items-center justify-center transition-colors"
+                className="w-12 h-12 bg-terracotta-100 hover:bg-terracotta-200 rounded-full flex items-center justify-center transition-colors border border-terracotta-200"
               >
-                <ChevronRight className="text-ocean-700" size={24} />
+                <ChevronRight className="text-terracotta-700" size={24} />
               </button>
             </div>
           </div>
@@ -691,7 +727,7 @@ function Gallery() {
   const [ref, isInView] = useInView()
 
   return (
-    <section className="py-24 bg-sand-50">
+    <section className="py-24 bg-paper-100">
       <div className="max-w-7xl mx-auto px-4">
         <div
           ref={ref}
@@ -699,11 +735,11 @@ function Gallery() {
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-ocean-900 mb-4">
-            Life by the water
+          <h2 className="font-display text-4xl md:text-5xl text-wood-800 mb-4">
+            Glimpses of Life Here
           </h2>
-          <p className="text-ocean-600 text-lg">
-            A glimpse of what awaits you
+          <p className="text-wood-600 text-lg font-serif">
+            A day at Malgudi Homestay
           </p>
         </div>
 
@@ -711,7 +747,7 @@ function Gallery() {
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className={`image-zoom rounded-xl overflow-hidden transition-all duration-700 ${
+              className={`image-zoom rounded-xl overflow-hidden transition-all duration-700 border border-terracotta-100 ${
                 index === 0 || index === 5 ? 'md:col-span-1 md:row-span-2' : ''
               } ${isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -734,10 +770,10 @@ function FinalCTA() {
   const [ref, isInView] = useInView()
 
   return (
-    <section className="py-24 bg-gradient-to-br from-ocean-600 to-ocean-800 text-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-terracotta-600 to-terracotta-800 text-white relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-ocean-500/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sunset-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-terracotta-500/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-turmeric-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div
         ref={ref}
@@ -745,23 +781,23 @@ function FinalCTA() {
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <h2 className="font-serif text-4xl md:text-6xl mb-6">
-          Ready to wake up to the waves?
+        <h2 className="font-display text-4xl md:text-6xl mb-6">
+          The road is calling
         </h2>
-        <p className="text-xl text-ocean-100 mb-10">
-          Your coastal escape is just a phone call or email away. We'd love to hear from you.
+        <p className="text-xl text-terracotta-100 mb-10 font-serif">
+          Pack light. We have everything else - food, stories, and a hammock with your name on it.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="mailto:hello@coastalstays.com"
-            className="bg-white text-ocean-700 hover:bg-sand-100 px-10 py-4 rounded-full text-lg font-semibold transition-all hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2"
+            href="mailto:namaste@malgudihomestay.in"
+            className="bg-paper-50 text-terracotta-700 hover:bg-paper-100 px-10 py-4 rounded-lg text-lg font-semibold transition-all hover:shadow-xl flex items-center justify-center gap-2"
           >
             <Mail size={20} />
-            Email Us
+            Write to Us
           </a>
           <a
-            href="tel:+1234567890"
-            className="border-2 border-white text-white hover:bg-white hover:text-ocean-700 px-10 py-4 rounded-full text-lg font-semibold transition-all flex items-center justify-center gap-2"
+            href="tel:+919876543210"
+            className="border-2 border-paper-50 text-paper-50 hover:bg-paper-50 hover:text-terracotta-700 px-10 py-4 rounded-lg text-lg font-semibold transition-all flex items-center justify-center gap-2"
           >
             <Phone size={20} />
             Call Us
@@ -775,24 +811,24 @@ function FinalCTA() {
 // Footer
 function Footer() {
   return (
-    <footer id="footer" className="bg-ocean-950 text-white py-16">
+    <footer id="footer" className="bg-wood-900 text-paper-100 py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Shell className="w-8 h-8 text-ocean-400" />
-              <span className="font-serif text-2xl font-semibold">Coastal Stays</span>
+              <TreePalm className="w-8 h-8 text-terracotta-400" />
+              <span className="font-display text-2xl">Malgudi Homestay</span>
             </div>
-            <p className="text-ocean-300 mb-6 max-w-md">
-              Five unique coastal properties, one family's passion. We've been welcoming
-              guests to our little slice of paradise for over 20 years.
+            <p className="text-paper-300 mb-6 max-w-md font-serif">
+              Five homes, one family, countless stories. Located between
+              Mangalore and Udupi - where the highway meets the sea.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-ocean-800 hover:bg-ocean-700 rounded-full flex items-center justify-center transition-colors">
+              <a href="#" className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-lg flex items-center justify-center transition-colors border border-wood-700">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 bg-ocean-800 hover:bg-ocean-700 rounded-full flex items-center justify-center transition-colors">
+              <a href="#" className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-lg flex items-center justify-center transition-colors border border-wood-700">
                 <Facebook size={20} />
               </a>
             </div>
@@ -800,19 +836,19 @@ function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
-            <div className="space-y-3 text-ocean-300">
-              <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-white transition-colors">
+            <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
+            <div className="space-y-3 text-paper-300">
+              <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-paper-50 transition-colors">
                 <Phone size={18} />
-                (123) 456-7890
+                +91 98765 43210
               </a>
-              <a href="mailto:hello@coastalstays.com" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="mailto:namaste@malgudihomestay.in" className="flex items-center gap-2 hover:text-paper-50 transition-colors">
                 <Mail size={18} />
-                hello@coastalstays.com
+                namaste@malgudihomestay.in
               </a>
               <div className="flex items-center gap-2">
                 <MapPin size={18} />
-                Coastal Paradise, CA
+                NH75, Coastal Karnataka
               </div>
             </div>
           </div>
@@ -821,23 +857,22 @@ function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <div className="space-y-3">
-              <a href="#properties" className="block text-ocean-300 hover:text-white transition-colors">Our Properties</a>
-              <a href="#story" className="block text-ocean-300 hover:text-white transition-colors">Our Story</a>
-              <a href="#testimonials" className="block text-ocean-300 hover:text-white transition-colors">Guest Reviews</a>
-              <a href="#" className="block text-ocean-300 hover:text-white transition-colors">FAQ</a>
+              <a href="#properties" className="block text-paper-300 hover:text-paper-50 transition-colors">Our Homes</a>
+              <a href="#story" className="block text-paper-300 hover:text-paper-50 transition-colors">Our Story</a>
+              <a href="#testimonials" className="block text-paper-300 hover:text-paper-50 transition-colors">Guest Stories</a>
+              <a href="#location" className="block text-paper-300 hover:text-paper-50 transition-colors">Location</a>
             </div>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-ocean-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-ocean-400 text-sm">
-            © 2024 Coastal Stays. All rights reserved.
+        <div className="pt-8 border-t border-wood-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-paper-400 text-sm">
+            © 2024 Malgudi Homestay. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-ocean-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
+          <p className="text-paper-500 text-sm font-serif italic">
+            "Like a chapter from R.K. Narayan's world"
+          </p>
         </div>
       </div>
     </footer>
@@ -857,12 +892,13 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation scrolled={scrolled} />
+    <div className="min-h-screen bg-paper-50">
+      <NavBar scrolled={scrolled} />
       <Hero />
+      <LocationBadge />
       <OurStory />
       <Properties />
-      <WhyBookDirect />
+      <WhyStayWithUs />
       <LocationHighlights />
       <Testimonials />
       <Gallery />

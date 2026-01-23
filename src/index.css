@@ -1,39 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  /* Coastal Color Palette */
-  --color-ocean-50: #f0f9ff;
-  --color-ocean-100: #e0f2fe;
-  --color-ocean-200: #b9e5fe;
-  --color-ocean-300: #7dd3fc;
-  --color-ocean-400: #38bdf8;
-  --color-ocean-500: #0ea5e9;
-  --color-ocean-600: #0284c7;
-  --color-ocean-700: #0369a1;
-  --color-ocean-800: #075985;
-  --color-ocean-900: #0c4a6e;
+  /* Malgudi Days Color Palette - Warm, Earthy, Nostalgic */
 
-  --color-sand-50: #fefdfb;
-  --color-sand-100: #fdf8f0;
-  --color-sand-200: #f9ecd8;
-  --color-sand-300: #f3dbb8;
-  --color-sand-400: #e8c08e;
-  --color-sand-500: #d4a574;
-  --color-sand-600: #b8845c;
-  --color-sand-700: #966a4a;
-  --color-sand-800: #7a5640;
-  --color-sand-900: #654838;
+  /* Terracotta - like laterite stone of coastal Karnataka */
+  --color-terracotta-50: #fdf5f3;
+  --color-terracotta-100: #fae8e4;
+  --color-terracotta-200: #f6d5cd;
+  --color-terracotta-300: #efb8aa;
+  --color-terracotta-400: #e4907a;
+  --color-terracotta-500: #d46a4d;
+  --color-terracotta-600: #c25038;
+  --color-terracotta-700: #a23f2d;
+  --color-terracotta-800: #86382a;
+  --color-terracotta-900: #6f3328;
 
-  --color-sunset-400: #fb923c;
-  --color-sunset-500: #f97316;
-  --color-sunset-600: #ea580c;
+  /* Turmeric - warm mustard yellow */
+  --color-turmeric-50: #fefce8;
+  --color-turmeric-100: #fef9c3;
+  --color-turmeric-200: #fef08a;
+  --color-turmeric-300: #fde047;
+  --color-turmeric-400: #facc15;
+  --color-turmeric-500: #eab308;
+  --color-turmeric-600: #ca8a04;
+  --color-turmeric-700: #a16207;
+  --color-turmeric-800: #854d0e;
+  --color-turmeric-900: #713f12;
 
-  --color-coral-400: #f87171;
-  --color-coral-500: #ef4444;
+  /* Banana Leaf - deep forest green */
+  --color-leaf-50: #f0fdf4;
+  --color-leaf-100: #dcfce7;
+  --color-leaf-200: #bbf7d0;
+  --color-leaf-300: #86efac;
+  --color-leaf-400: #4ade80;
+  --color-leaf-500: #22c55e;
+  --color-leaf-600: #16a34a;
+  --color-leaf-700: #15803d;
+  --color-leaf-800: #166534;
+  --color-leaf-900: #14532d;
 
-  /* Font Families */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  /* Coconut Wood - warm browns */
+  --color-wood-50: #faf6f1;
+  --color-wood-100: #f5ebe0;
+  --color-wood-200: #e8d5bd;
+  --color-wood-300: #d9bc96;
+  --color-wood-400: #c99d6d;
+  --color-wood-500: #bc854f;
+  --color-wood-600: #a96c3f;
+  --color-wood-700: #8c5535;
+  --color-wood-800: #734630;
+  --color-wood-900: #5f3b2a;
+
+  /* Old Paper - warm cream */
+  --color-paper-50: #fefdfb;
+  --color-paper-100: #fdf8ef;
+  --color-paper-200: #f9ecda;
+  --color-paper-300: #f3ddc0;
+  --color-paper-400: #e9c697;
+  --color-paper-500: #dba86d;
+  --color-paper-600: #cc8b4d;
+  --color-paper-700: #aa6f3c;
+  --color-paper-800: #895a35;
+  --color-paper-900: #704b2e;
+
+  /* Font Families - Malgudi inspired */
+  --font-display: 'Yatra One', cursive;
+  --font-serif: 'Tiro Devanagari Hindi', serif;
+  --font-sans: 'Mukta', sans-serif;
 }
 
 /* Base styles */
@@ -43,6 +76,7 @@ html {
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-paper-50);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -111,20 +145,53 @@ body {
   transform: scale(1.08);
 }
 
-/* Custom scrollbar */
+/* Malgudi-style decorative border */
+.malgudi-border {
+  border: 2px solid var(--color-terracotta-300);
+  position: relative;
+}
+
+.malgudi-border::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--color-terracotta-200);
+  pointer-events: none;
+}
+
+/* Custom scrollbar - earthy theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-sand-100);
+  background: var(--color-paper-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-ocean-400);
+  background: var(--color-terracotta-400);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ocean-500);
+  background: var(--color-terracotta-500);
+}
+
+/* Sepia overlay for nostalgic images */
+.sepia-overlay {
+  position: relative;
+}
+
+.sepia-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(139, 90, 43, 0.1),
+    rgba(139, 90, 43, 0.2)
+  );
+  pointer-events: none;
 }
