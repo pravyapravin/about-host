@@ -64,7 +64,8 @@
   --color-paper-900: #704b2e;
 
   /* Font Families - Malgudi inspired */
-  --font-display: 'Yatra One', cursive;
+  --font-display: 'Martel', serif;
+  --font-heading: 'Martel', serif;
   --font-serif: 'Tiro Devanagari Hindi', serif;
   --font-sans: 'Mukta', sans-serif;
 }
@@ -194,4 +195,65 @@ body {
     rgba(139, 90, 43, 0.2)
   );
   pointer-events: none;
+}
+
+/* Testimonial auto-rotate progress bar */
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progressBar 5s linear infinite;
+}
+
+/* Heading styles - warm, Malgudi feel */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+/* Font display class enhancement */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+/* Traditional border pattern - inspired by Mangalore tiles */
+.tile-border {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-terracotta-200) 0px,
+    var(--color-terracotta-200) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-size: 20px 4px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+/* Decorative pattern overlay */
+.kolam-pattern {
+  background-image: radial-gradient(circle at 50% 50%, var(--color-terracotta-200) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Card hover lift effect */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth text transitions */
+.text-transition {
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
