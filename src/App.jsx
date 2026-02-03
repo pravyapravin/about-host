@@ -657,21 +657,12 @@ function PropertyCard({ property, index }) {
 
         {/* CTA Button */}
         <div className="mt-4 pt-4 border-t border-terracotta-100">
-          {property.slug === 'beach-bungalow' ? (
-            <Link
-              to={`/stays/${property.slug}`}
-              className="block w-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-center py-2.5 rounded-lg font-medium transition-all hover:shadow-lg"
-            >
-              Learn More
-            </Link>
-          ) : (
-            <button
-              className="block w-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-center py-2.5 rounded-lg font-medium transition-all hover:shadow-lg opacity-80 cursor-not-allowed"
-              disabled
-            >
-              Coming Soon
-            </button>
-          )}
+          <Link
+            to={`/stays/${property.slug}`}
+            className="block w-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-center py-2.5 rounded-lg font-medium transition-all hover:shadow-lg"
+          >
+            Learn More
+          </Link>
         </div>
       </div>
     </div>

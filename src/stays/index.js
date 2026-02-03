@@ -1,1 +1,6 @@
 export { default as BeachBungalow } from './BeachBungalow'
+export { default as Chitrakala } from './Chitrakala'
+export { default as Kutir1 } from './Kutir1'
+export { default as Kutir2 } from './Kutir2'
+export { default as Rattan } from './Rattan'
+export { default as BeachNest } from './BeachNest'
