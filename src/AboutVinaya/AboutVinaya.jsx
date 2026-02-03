@@ -278,6 +278,8 @@ function HerStory() {
 
 Her father, Vasudeva Suvarna — lovingly called Vas Anna by everyone who has ever needed help in the village — is a man of quiet standing. The kind of man who solves disputes without raising his voice and lends money without writing it down. The family lived in two small kutirs while the beach bungalow was being built, those years when the walls rose slowly and the sea waited patiently.
 
+She became the first postgraduate woman in her village — a quiet achievement in a place where the sea had always been the only teacher most needed. She went on to become a lecturer of economics, explaining the logic of markets to students who would later navigate their own.
+
 That home — once theirs, once the place where Vinaya learned to read by lantern light — is now open to guests. So that others might feel what it was to live quietly beside the sea.`
     },
     {
