@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Menu,
   X,
@@ -29,7 +30,8 @@ import {
   Globe,
   Award,
   MessageCircle,
-  Languages
+  Languages,
+  Feather
 } from 'lucide-react'
 
 // Property data - 6 homestays
@@ -37,9 +39,10 @@ const properties = [
   {
     id: 1,
     name: 'Beach Bungalow',
+    slug: 'beach-bungalow',
     tagline: 'Where the beach meets your doorstep',
     description: 'A breathtaking beachfront bungalow with modern comfort, rustic interiors, and a unique feeling of spaciousness. The beach is just a minute away.',
-    capacity: 6,
+    capacity: 10,
     bedrooms: 3,
     image: '/images/stays/beach-bungalow.png',
     amenities: ['wifi', 'parking', 'garden', 'kitchen']
@@ -47,16 +50,18 @@ const properties = [
   {
     id: 2,
     name: 'Chitrakala',
+    slug: 'chitrakala',
     tagline: 'Traditional charm, artistic soul',
     description: 'A spacious villa with traditional Mangalorean architecture, tiled roof, and a beautiful sit-out verandah overlooking the garden.',
-    capacity: 8,
-    bedrooms: 4,
+    capacity: 2,
+    bedrooms: 1,
     image: '/images/stays/chitrakala.png',
     amenities: ['wifi', 'parking', 'kitchen', 'garden']
   },
   {
     id: 3,
     name: 'Kutir 1',
+    slug: 'kutir-1',
     tagline: 'Nestled in nature, close to the waves',
     description: 'An intimate cottage perfect for couples or small families. Wake up to birdsong and fall asleep to the sound of waves.',
     capacity: 4,
@@ -67,30 +72,33 @@ const properties = [
   {
     id: 4,
     name: 'Kutir 2',
+    slug: 'kutir-2',
     tagline: 'The coast in its full glory',
     description: 'Our heritage home with wooden beams, antique furniture, and a courtyard. Experience old-world coastal Karnataka hospitality.',
-    capacity: 6,
-    bedrooms: 3,
+    capacity: 3,
+    bedrooms: 1,
     image: '/images/stays/kutir-2.png',
     amenities: ['wifi', 'parking', 'heritage', 'kitchen']
   },
   {
     id: 5,
     name: 'Rattan',
+    slug: 'rattan',
     tagline: 'Where every evening is golden',
     description: 'Perched with stunning sunset views, this cozy retreat offers the perfect blend of privacy and proximity to the beach.',
-    capacity: 4,
-    bedrooms: 2,
+    capacity: 2,
+    bedrooms: 1,
     image: '/images/stays/rattan.png',
     amenities: ['wifi', 'terrace', 'parking', 'kitchen']
   },
   {
     id: 6,
     name: 'Beach Nest',
+    slug: 'beach-nest',
     tagline: 'Surrounded by coconut trees, steps from the sea',
     description: 'A peaceful place where you can enjoy, relax and have fun. The bungalow is surrounded by coconut trees and the beach is just a minute walk.',
-    capacity: 7,
-    bedrooms: 3,
+    capacity: 2,
+    bedrooms: 1,
     image: '/images/stays/beach-nest.jpeg',
     amenities: ['wifi', 'parking', 'kitchen', 'terrace']
   }
@@ -199,7 +207,7 @@ function NavBar({ scrolled }) {
 
   const navLinks = [
     { name: 'Our Homes', href: '#properties' },
-    { name: 'About Vinaya', href: '#host' },
+    { name: 'About Vinaya', href: '/about-vinaya', isRoute: true },
     { name: 'Location', href: '#location' },
     { name: 'Guest Stories', href: '#testimonials' },
     { name: 'Contact', href: '#footer' }
@@ -224,15 +232,27 @@ function NavBar({ scrolled }) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-terracotta-500 ${
-                  scrolled ? 'text-wood-700' : 'text-paper-100'
-                }`}
-              >
-                {link.name}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-terracotta-500 ${
+                    scrolled ? 'text-wood-700' : 'text-paper-100'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-terracotta-500 ${
+                    scrolled ? 'text-wood-700' : 'text-paper-100'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <a
               href="#footer"
@@ -259,14 +279,25 @@ function NavBar({ scrolled }) {
         {mobileMenuOpen && (
           <div className="md:hidden bg-paper-50 rounded-xl shadow-xl mt-2 p-4 animate-fade-in border border-terracotta-200">
             {navLinks.map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-3 text-wood-700 hover:text-terracotta-600 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block py-3 text-wood-700 hover:text-terracotta-600 font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block py-3 text-wood-700 hover:text-terracotta-600 font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <a
               href="#footer"
@@ -411,6 +442,45 @@ function LocationBadge() {
   )
 }
 
+// Village Intro Section - About Yermal Thenka
+function VillageIntro() {
+  const [ref, isInView] = useInView()
+
+  return (
+    <section className="py-20 bg-paper-100">
+      <div className="max-w-3xl mx-auto px-4">
+        <div
+          ref={ref}
+          className={`transition-all duration-700 ${
+            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="text-center mb-8">
+            <Feather className="w-8 h-8 text-terracotta-400 mx-auto mb-4" />
+          </div>
+          <div className="font-serif text-lg md:text-xl text-wood-700 leading-relaxed space-y-6 text-center">
+            <p>
+              <span className="font-display text-3xl text-terracotta-600 leading-none">Y</span>ermal Thenka
+              is the kind of village that mapmakers tend to overlook. It sits between Mangalore and Udupi
+              on the coastal highway, at a point where the road curves slightly, as if making room
+              for the sea breeze to pass through.
+            </p>
+            <p>
+              The village has a temple, a provision store run by a man named Pai who knows everyone's
+              business, and six houses that have, over the years, opened their doors to strangers
+              seeking what the city cannot provide: silence, sea air, and the peculiar peace that
+              comes from watching coconut palms sway in the wind.
+            </p>
+            <p className="text-terracotta-600 italic">
+              This is where our story begins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // About the Host Section
 function AboutHost() {
   const [ref, isInView] = useInView()
@@ -482,6 +552,16 @@ function AboutHost() {
                   gems that aren't on Google Maps, and making sure you experience our coast
                   the way it deserves to be experienced.
                 </p>
+                <p className="font-medium text-wood-800 mt-4">
+                  I don't run a hotel. These are real homes, opening their doors to guests. The difference, I've learned, is everything.
+                </p>
+                <Link
+                  to="/about-vinaya"
+                  className="inline-flex items-center gap-2 mt-6 text-terracotta-600 hover:text-terracotta-700 font-medium transition-colors"
+                >
+                  Read my full story
+                  <span className="text-lg">→</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -575,9 +655,14 @@ function PropertyCard({ property, index }) {
           })}
         </div>
 
-        {/* Contact prompt */}
+        {/* CTA Button */}
         <div className="mt-4 pt-4 border-t border-terracotta-100">
-          <p className="text-sm text-wood-500 font-serif italic">Contact us to book this home</p>
+          <a
+            href={`/stays/${property.slug}`}
+            className="block w-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-center py-2.5 rounded-lg font-medium transition-all hover:shadow-lg"
+          >
+            Learn More
+          </a>
         </div>
       </div>
     </div>
@@ -617,7 +702,7 @@ function Properties() {
             Choose Your Coastal Haven
           </h2>
           <p className="text-wood-600 text-lg max-w-2xl mx-auto font-serif">
-            Six unique coastal homes, each with its own character. From beachfront
+            Six unique coastal homes, each with its own character. Most of the houses have stood here longer than most guests have been alive. From beachfront
             bungalows to cozy kutirs - pick the one that calls to you.
           </p>
 
@@ -781,8 +866,8 @@ function LocationHighlights() {
             }`}
           >
             <img
-              src="/images/coastal-karnataka-beach.jpg"
-              alt="Coastal Karnataka beach"
+              src="/images/coastal-karnataka-beach.avif"
+              alt="Yermal Thenka Beach"
               className="rounded-xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -left-6 bg-paper-50 p-4 rounded-xl shadow-lg border border-terracotta-200">
@@ -880,11 +965,6 @@ function LocalGuide() {
       description: 'The famous ones + with best views'
     },
     {
-      emoji: '🌄',
-      title: 'Auto and taxi on hire',
-      description: 'Convenient transport options arranged for you'
-    },
-    {
       emoji: '🛍️',
       title: 'Shopping',
       description: 'Souvenirs, take homes, not tourist prices'
@@ -892,7 +972,7 @@ function LocalGuide() {
   ]
 
   return (
-    <section className="py-24 bg-leaf-700 text-white">
+    <section className="py-24 bg-wood-700 text-white">
       <div className="max-w-7xl mx-auto px-4">
         <div
           ref={ref}
@@ -903,23 +983,23 @@ function LocalGuide() {
           <h2 className="font-display text-4xl md:text-5xl mb-4">
             Your Local Guide
           </h2>
-          <p className="text-leaf-100 text-lg max-w-2xl mx-auto">
+          <p className="text-paper-200 text-lg max-w-2xl mx-auto">
             Insider tips from someone who actually lives here
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {guides.map((guide, index) => (
             <div
               key={guide.title}
-              className={`bg-leaf-600 p-6 rounded-xl border border-leaf-500 transition-all duration-700 hover:bg-leaf-500 ${
+              className={`bg-wood-600 p-6 rounded-xl border border-wood-500 transition-all duration-700 hover:bg-wood-500 ${
                 isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="text-4xl mb-3">{guide.emoji}</div>
               <h3 className="text-xl font-semibold mb-2">{guide.title}</h3>
-              <p className="text-leaf-100">{guide.description}</p>
+              <p className="text-paper-200">{guide.description}</p>
             </div>
           ))}
         </div>
@@ -1270,7 +1350,7 @@ function FinalCTA() {
           The coast is calling
         </h2>
         <p className="text-xl text-terracotta-100 mb-10 font-serif">
-          Pack light. We have everything else - food, stories, and a hammock with your name on it.
+          The coconut trees are swaying. The sea is doing what it always does.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -1508,6 +1588,7 @@ function App() {
       <NavBar scrolled={scrolled} />
       <Hero />
       <LocationBadge />
+      <VillageIntro />
       <Properties />
       <AboutHost />
       <WhyStayWithUs />
