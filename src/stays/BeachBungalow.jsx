@@ -490,28 +490,15 @@ function AvailabilityCalendar() {
 
           {/* Booking CTA */}
           <div className="mt-8 text-center">
-            <p className="text-wood-600 mb-4 font-serif">
-              Found your dates? Book directly for the best rates.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={`https://wa.me/${propertyData.whatsapp.replace(/[^0-9]/g, '')}?text=Hi%20Vinaya!%20I'm%20interested%20in%20booking%20Beach%20Bungalow.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg"
-              >
-                <MessageCircle size={20} />
-                Book via WhatsApp
-              </a>
-              <a
-                href={propertyData.airbnbUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-terracotta-500 text-terracotta-600 hover:bg-terracotta-50 px-8 py-4 rounded-lg font-semibold transition-all"
-              >
-                View on Airbnb
-              </a>
-            </div>
+            <a
+              href={`https://wa.me/${propertyData.whatsapp.replace(/[^0-9]/g, '')}?text=Hi%20Vinaya!%20I'm%20interested%20in%20booking%20Beach%20Bungalow.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg"
+            >
+              <MessageCircle size={20} />
+              Book via WhatsApp
+            </a>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   // Map listing slugs to their iCal URLs
   const calendarUrls = {
-    'beach-bungalow': 'https://www.airbnb.com/calendar/ical/38033343.ics?s=2c0c9b896c694bdd900a9d9223fbfb61&locale=en-GB'
+    'beach-bungalow': 'https://www.airbnb.com/calendar/ical/38033343.ics?t=2c0c9b896c694bdd900a9d9223fbfb61&locale=en-GB'
   };
 
   const icalUrl = calendarUrls[listing];
